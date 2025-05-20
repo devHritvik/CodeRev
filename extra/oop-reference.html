@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .element-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .element-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .element-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card p {
+            margin-bottom: 1rem;
+        }
+
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .code-example {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .rendered-example {
+            flex: 1;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .output {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .language-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .java-badge {
+            background-color: #007396;
+            color: white;
+        }
+
+        .python-badge {
+            background-color: #306998;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Object-Oriented Programming Reference Guide</h1>
+        <p>A comprehensive guide to OOP concepts with examples in multiple languages</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#classes">Classes & Objects</a></li>
+            <li><a href="#encapsulation">Encapsulation</a></li>
+            <li><a href="#inheritance">Inheritance</a></li>
+            <li><a href="#polymorphism">Polymorphism</a></li>
+            <li><a href="#abstraction">Abstraction</a></li>
+            <li><a href="#interfaces">Interfaces</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="classes" class="element-section">
+            <h2>Classes & Objects</h2>
+
+            <div class="element-card">
+                <h3>Class Definition</h3>
+                <p>Creating classes and objects in different languages.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        public class Person {<br>
+                        &nbsp;&nbsp;private String name;<br>
+                        &nbsp;&nbsp;private int age;<br><br>
+                        &nbsp;&nbsp;public Person(String name, int age) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+                        &nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;public void introduce() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hi, I'm " + name);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        <span class="language-badge python-badge">Python</span>
+                        class Person:<br>
+                        &nbsp;&nbsp;def __init__(self, name, age):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;self.age = age<br><br>
+                        &nbsp;&nbsp;def introduce(self):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(f"Hi, I'm {self.name}")
+                    </div>
+                    <div class="rendered-example">
+                        <p>Key concepts:</p>
+                        <ul>
+                            <li>Class as a blueprint</li>
+                            <li>Instance variables</li>
+                            <li>Constructor method</li>
+                            <li>Instance methods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="encapsulation" class="element-section">
+            <h2>Encapsulation</h2>
+
+            <div class="element-card">
+                <h3>Access Modifiers</h3>
+                <p>Controlling access to class members.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        public class BankAccount {<br>
+                        &nbsp;&nbsp;private double balance;<br>
+                        &nbsp;&nbsp;protected String accountNumber;<br>
+                        &nbsp;&nbsp;public String ownerName;<br><br>
+                        &nbsp;&nbsp;public void deposit(double amount) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if (amount > 0) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balance += amount;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;public double getBalance() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return balance;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p>Access levels:</p>
+                        <ul>
+                            <li>private: Class only</li>
+                            <li>protected: Class and subclasses</li>
+                            <li>public: Anywhere</li>
+                            <li>default: Package only</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inheritance" class="element-section">
+            <h2>Inheritance</h2>
+
+            <div class="element-card">
+                <h3>Class Inheritance</h3>
+                <p>Creating class hierarchies.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        class Animal {<br>
+                        &nbsp;&nbsp;protected String name;<br><br>
+                        &nbsp;&nbsp;public void makeSound() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Some sound");<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        class Dog extends Animal {<br>
+                        &nbsp;&nbsp;public void makeSound() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Woof!");<br>
+                        &nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;public void fetch() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Fetching...");<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p>Inheritance concepts:</p>
+                        <ul>
+                            <li>Base/Parent class</li>
+                            <li>Derived/Child class</li>
+                            <li>Method overriding</li>
+                            <li>Additional functionality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="polymorphism" class="element-section">
+            <h2>Polymorphism</h2>
+
+            <div class="element-card">
+                <h3>Method Overriding</h3>
+                <p>Different implementations of the same method.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        class Shape {<br>
+                        &nbsp;&nbsp;public double getArea() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        class Circle extends Shape {<br>
+                        &nbsp;&nbsp;private double radius;<br><br>
+                        &nbsp;&nbsp;public double getArea() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return Math.PI * radius * radius;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        class Rectangle extends Shape {<br>
+                        &nbsp;&nbsp;private double width, height;<br><br>
+                        &nbsp;&nbsp;public double getArea() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return width * height;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p>Polymorphism types:</p>
+                        <ul>
+                            <li>Compile-time (Method overloading)</li>
+                            <li>Runtime (Method overriding)</li>
+                            <li>Interface-based</li>
+                            <li>Abstract class-based</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="abstraction" class="element-section">
+            <h2>Abstraction</h2>
+
+            <div class="element-card">
+                <h3>Abstract Classes</h3>
+                <p>Creating abstract classes and methods.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        abstract class Vehicle {<br>
+                        &nbsp;&nbsp;protected String brand;<br><br>
+                        &nbsp;&nbsp;public abstract void start();<br>
+                        &nbsp;&nbsp;public abstract void stop();<br><br>
+                        &nbsp;&nbsp;public void displayBrand() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Brand: " + brand);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        class Car extends Vehicle {<br>
+                        &nbsp;&nbsp;public void start() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Car starting...");<br>
+                        &nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;public void stop() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Car stopping...");<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p>Abstraction concepts:</p>
+                        <ul>
+                            <li>Abstract classes</li>
+                            <li>Abstract methods</li>
+                            <li>Concrete methods</li>
+                            <li>Implementation in subclasses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interfaces" class="element-section">
+            <h2>Interfaces</h2>
+
+            <div class="element-card">
+                <h3>Interface Definition</h3>
+                <p>Creating and implementing interfaces.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="language-badge java-badge">Java</span>
+                        interface Drawable {<br>
+                        &nbsp;&nbsp;void draw();<br>
+                        &nbsp;&nbsp;void resize(int percentage);<br>
+                        }<br><br>
+                        class Circle implements Drawable {<br>
+                        &nbsp;&nbsp;public void draw() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Drawing circle");<br>
+                        &nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;public void resize(int percentage) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Resizing circle by " + percentage + "%");<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p>Interface concepts:</p>
+                        <ul>
+                            <li>Contract definition</li>
+                            <li>Multiple implementation</li>
+                            <li>Method signatures</li>
+                            <li>Default methods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>OOP Reference Guide &copy; 2024 | Created for learning purposes</p>
+    </footer>
+</body>
+</html>

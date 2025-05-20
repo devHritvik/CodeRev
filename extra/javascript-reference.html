@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .element-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .element-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .element-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card p {
+            margin-bottom: 1rem;
+        }
+
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .code-example {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .rendered-example {
+            flex: 1;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .output {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.5rem 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Reference Guide</h1>
+        <p>A comprehensive guide to JavaScript with examples and live demonstrations</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#basics">Basics</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#objects">Objects</a></li>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#dom">DOM Manipulation</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="basics" class="element-section">
+            <h2>JavaScript Basics</h2>
+
+            <div class="element-card">
+                <h3>Variables and Data Types</h3>
+                <p>Basic variable declaration and data types in JavaScript.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Variable Declaration<br>
+                        let name = 'John';<br>
+                        const age = 25;<br>
+                        var isStudent = true;<br><br>
+                        // Data Types<br>
+                        let number = 42;<br>
+                        let text = 'Hello';<br>
+                        let boolean = true;<br>
+                        let array = [1, 2, 3];<br>
+                        let object = { key: 'value' };
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showVariables()">Show Variables</button>
+                        <div id="variables-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Operators</h3>
+                <p>Basic operators and expressions.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Arithmetic Operators<br>
+                        let sum = 5 + 3;<br>
+                        let difference = 10 - 4;<br>
+                        let product = 6 * 2;<br>
+                        let quotient = 15 / 3;<br><br>
+                        // Comparison Operators<br>
+                        let isEqual = 5 === '5';<br>
+                        let isGreater = 10 > 5;
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showOperators()">Show Operators</button>
+                        <div id="operators-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="functions" class="element-section">
+            <h2>Functions</h2>
+
+            <div class="element-card">
+                <h3>Function Declarations</h3>
+                <p>Different ways to declare functions.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Function Declaration<br>
+                        function greet(name) {<br>
+                        &nbsp;&nbsp;return `Hello, ${name}!`;<br>
+                        }<br><br>
+                        // Arrow Function<br>
+                        const add = (a, b) => a + b;<br><br>
+                        // Function Expression<br>
+                        const multiply = function(a, b) {<br>
+                        &nbsp;&nbsp;return a * b;<br>
+                        };
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showFunctions()">Show Functions</button>
+                        <div id="functions-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objects" class="element-section">
+            <h2>Objects</h2>
+
+            <div class="element-card">
+                <h3>Object Creation and Methods</h3>
+                <p>Creating and working with objects.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Object Literal<br>
+                        const person = {<br>
+                        &nbsp;&nbsp;name: 'John',<br>
+                        &nbsp;&nbsp;age: 30,<br>
+                        &nbsp;&nbsp;greet() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return `Hello, I'm ${this.name}`;<br>
+                        &nbsp;&nbsp;}<br>
+                        };<br><br>
+                        // Object Methods<br>
+                        Object.keys(person);<br>
+                        Object.values(person);
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showObjects()">Show Objects</button>
+                        <div id="objects-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="arrays" class="element-section">
+            <h2>Arrays</h2>
+
+            <div class="element-card">
+                <h3>Array Methods</h3>
+                <p>Common array operations and methods.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        const numbers = [1, 2, 3, 4, 5];<br><br>
+                        // Map<br>
+                        const doubled = numbers.map(n => n * 2);<br><br>
+                        // Filter<br>
+                        const even = numbers.filter(n => n % 2 === 0);<br><br>
+                        // Reduce<br>
+                        const sum = numbers.reduce((a, b) => a + b, 0);
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showArrays()">Show Arrays</button>
+                        <div id="arrays-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dom" class="element-section">
+            <h2>DOM Manipulation</h2>
+
+            <div class="element-card">
+                <h3>DOM Methods</h3>
+                <p>Working with the Document Object Model.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Create Element<br>
+                        const div = document.createElement('div');<br>
+                        div.textContent = 'New Element';<br><br>
+                        // Add Event Listener<br>
+                        button.addEventListener('click', () => {<br>
+                        &nbsp;&nbsp;console.log('Button clicked!');<br>
+                        });<br><br>
+                        // Query Selector<br>
+                        const element = document.querySelector('.class');
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showDOM()">Show DOM</button>
+                        <div id="dom-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="built-in" class="element-section">
+            <h2>Built-in Functions & Methods</h2>
+
+            <div class="element-card">
+                <h3>String Methods</h3>
+                <p>Common string manipulation methods.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        const str = 'Hello World';<br><br>
+                        // String Methods<br>
+                        str.toUpperCase();<br>
+                        str.toLowerCase();<br>
+                        str.includes('World');<br>
+                        str.replace('World', 'JavaScript');<br>
+                        str.split(' ');<br>
+                        str.trim();
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showStringMethods()">Show String Methods</button>
+                        <div id="string-methods-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Math Functions</h3>
+                <p>Built-in mathematical functions.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Math Constants<br>
+                        Math.PI<br>
+                        Math.E<br><br>
+                        // Math Methods<br>
+                        Math.round(4.7)<br>
+                        Math.floor(4.7)<br>
+                        Math.ceil(4.7)<br>
+                        Math.random()<br>
+                        Math.max(1, 2, 3)<br>
+                        Math.min(1, 2, 3)
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showMathFunctions()">Show Math Functions</button>
+                        <div id="math-functions-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Date Methods</h3>
+                <p>Working with dates and times.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        const date = new Date();<br><br>
+                        // Date Methods<br>
+                        date.getFullYear()<br>
+                        date.getMonth()<br>
+                        date.getDate()<br>
+                        date.getHours()<br>
+                        date.getMinutes()<br>
+                        date.toLocaleString()
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showDateMethods()">Show Date Methods</button>
+                        <div id="date-methods-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Global Functions</h3>
+                <p>Global utility functions.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        // Type Conversion<br>
+                        parseInt('123')<br>
+                        parseFloat('123.45')<br>
+                        String(123)<br>
+                        Number('123')<br><br>
+                        // Other Global Functions<br>
+                        isNaN('Hello')<br>
+                        isFinite(Infinity)<br>
+                        encodeURI('https://example.com')<br>
+                        decodeURI(encodedURI)
+                    </div>
+                    <div class="rendered-example">
+                        <button onclick="showGlobalFunctions()">Show Global Functions</button>
+                        <div id="global-functions-output" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>JavaScript Reference Guide &copy; 2024 | Created for learning purposes</p>
+    </footer>
+
+    <script>
+        // Variables and Data Types
+        function showVariables() {
+            const output = document.getElementById('variables-output');
+            let name = 'John';
+            const age = 25;
+            var isStudent = true;
+
+            output.innerHTML = `
+                name: ${name}<br>
+                age: ${age}<br>
+                isStudent: ${isStudent}<br>
+                typeof name: ${typeof name}<br>
+                typeof age: ${typeof age}<br>
+                typeof isStudent: ${typeof isStudent}
+            `;
+        }
+
+        // Operators
+        function showOperators() {
+            const output = document.getElementById('operators-output');
+            const sum = 5 + 3;
+            const difference = 10 - 4;
+            const product = 6 * 2;
+            const quotient = 15 / 3;
+            const isEqual = 5 === '5';
+            const isGreater = 10 > 5;
+
+            output.innerHTML = `
+                5 + 3 = ${sum}<br>
+                10 - 4 = ${difference}<br>
+                6 * 2 = ${product}<br>
+                15 / 3 = ${quotient}<br>
+                5 === '5': ${isEqual}<br>
+                10 > 5: ${isGreater}
+            `;
+        }
+
+        // Functions
+        function showFunctions() {
+            const output = document.getElementById('functions-output');
+            function greet(name) {
+                return `Hello, ${name}!`;
+            }
+            const add = (a, b) => a + b;
+            const multiply = function(a, b) {
+                return a * b;
+            };
+
+            output.innerHTML = `
+                greet('John'): ${greet('John')}<br>
+                add(5, 3): ${add(5, 3)}<br>
+                multiply(4, 2): ${multiply(4, 2)}
+            `;
+        }
+
+        // Objects
+        function showObjects() {
+            const output = document.getElementById('objects-output');
+            const person = {
+                name: 'John',
+                age: 30,
+                greet() {
+                    return `Hello, I'm ${this.name}`;
+                }
+            };
+
+            output.innerHTML = `
+                person.greet(): ${person.greet()}<br>
+                Object.keys(person): ${Object.keys(person)}<br>
+                Object.values(person): ${Object.values(person)}
+            `;
+        }
+
+        // Arrays
+        function showArrays() {
+            const output = document.getElementById('arrays-output');
+            const numbers = [1, 2, 3, 4, 5];
+            const doubled = numbers.map(n => n * 2);
+            const even = numbers.filter(n => n % 2 === 0);
+            const sum = numbers.reduce((a, b) => a + b, 0);
+
+            output.innerHTML = `
+                Original array: ${numbers}<br>
+                Doubled: ${doubled}<br>
+                Even numbers: ${even}<br>
+                Sum: ${sum}
+            `;
+        }
+
+        // DOM
+        function showDOM() {
+            const output = document.getElementById('dom-output');
+            const div = document.createElement('div');
+            div.textContent = 'New Element';
+            output.appendChild(div);
+            output.innerHTML += '<br>Element created and added to the output!';
+        }
+
+        // String Methods
+        function showStringMethods() {
+            const output = document.getElementById('string-methods-output');
+            const str = 'Hello World';
+
+            output.innerHTML = `
+                Original string: "${str}"<br>
+                toUpperCase(): "${str.toUpperCase()}"<br>
+                toLowerCase(): "${str.toLowerCase()}"<br>
+                includes('World'): ${str.includes('World')}<br>
+                replace('World', 'JavaScript'): "${str.replace('World', 'JavaScript')}"<br>
+                split(' '): ${JSON.stringify(str.split(' '))}<br>
+                trim(): "${'  Hello World  '.trim()}"
+            `;
+        }
+
+        // Math Functions
+        function showMathFunctions() {
+            const output = document.getElementById('math-functions-output');
+
+            output.innerHTML = `
+                Math.PI: ${Math.PI}<br>
+                Math.E: ${Math.E}<br>
+                Math.round(4.7): ${Math.round(4.7)}<br>
+                Math.floor(4.7): ${Math.floor(4.7)}<br>
+                Math.ceil(4.7): ${Math.ceil(4.7)}<br>
+                Math.random(): ${Math.random()}<br>
+                Math.max(1, 2, 3): ${Math.max(1, 2, 3)}<br>
+                Math.min(1, 2, 3): ${Math.min(1, 2, 3)}
+            `;
+        }
+
+        // Date Methods
+        function showDateMethods() {
+            const output = document.getElementById('date-methods-output');
+            const date = new Date();
+
+            output.innerHTML = `
+                Current Date: ${date.toLocaleString()}<br>
+                getFullYear(): ${date.getFullYear()}<br>
+                getMonth(): ${date.getMonth()}<br>
+                getDate(): ${date.getDate()}<br>
+                getHours(): ${date.getHours()}<br>
+                getMinutes(): ${date.getMinutes()}<br>
+                toLocaleString(): ${date.toLocaleString()}
+            `;
+        }
+
+        // Global Functions
+        function showGlobalFunctions() {
+            const output = document.getElementById('global-functions-output');
+            const encodedURI = encodeURI('https://example.com?name=John Doe');
+
+            output.innerHTML = `
+                parseInt('123'): ${parseInt('123')}<br>
+                parseFloat('123.45'): ${parseFloat('123.45')}<br>
+                String(123): "${String(123)}"<br>
+                Number('123'): ${Number('123')}<br>
+                isNaN('Hello'): ${isNaN('Hello')}<br>
+                isFinite(Infinity): ${isFinite(Infinity)}<br>
+                encodeURI('https://example.com?name=John Doe'): "${encodedURI}"<br>
+                decodeURI(encodedURI): "${decodeURI(encodedURI)}"
+            `;
+        }
+    </script>
+</body>
+</html>

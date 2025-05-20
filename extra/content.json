@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "id": "html",
+      "name": "HTML",
+      "description": "Learn HTML - The standard markup language for Web pages",
+      "topics": [
+        {
+          "id": "html-intro",
+          "title": "HTML Introduction",
+          "content": "HTML is the standard markup language for creating Web pages.",
+          "codeExample": "<!DOCTYPE html>\n<html>\n<head>\n    <title>My First HTML Page</title>\n</head>\n<body>\n    <h1>Hello World!</h1>\n</body>\n</html>",
+          "practiceExercise": "Create a simple HTML page with a heading and a paragraph"
+        },
+        {
+          "id": "html-basic",
+          "title": "HTML Basic",
+          "content": "Learn the basic structure and elements of HTML.",
+          "codeExample": "<!DOCTYPE html>\n<html>\n<body>\n    <h1>My First Heading</h1>\n    <p>My first paragraph.</p>\n</body>\n</html>",
+          "practiceExercise": "Create a page with multiple headings and paragraphs"
+        }
+      ]
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "description": "Learn CSS - The language for styling web pages",
+      "topics": [
+        {
+          "id": "css-intro",
+          "title": "CSS Introduction",
+          "content": "CSS is the language we use to style an HTML document.",
+          "codeExample": "body {\n    background-color: lightblue;\n}\n\nh1 {\n    color: white;\n    text-align: center;\n}",
+          "practiceExercise": "Style a heading with different colors and fonts"
+        },
+        {
+          "id": "css-selectors",
+          "title": "CSS Selectors",
+          "content": "Learn how to select and style HTML elements.",
+          "codeExample": ".class-example {\n    color: blue;\n}\n\n#id-example {\n    font-size: 20px;\n}",
+          "practiceExercise": "Create and style elements using different selectors"
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "description": "Learn JavaScript - The programming language of the Web",
+      "topics": [
+        {
+          "id": "js-intro",
+          "title": "JavaScript Introduction",
+          "content": "JavaScript is the programming language of the Web.",
+          "codeExample": "function myFunction() {\n    document.getElementById('demo').innerHTML = 'Hello JavaScript!';\n}",
+          "practiceExercise": "Create a function that changes text on button click"
+        },
+        {
+          "id": "js-syntax",
+          "title": "JavaScript Syntax",
+          "content": "Learn the basic syntax and rules of JavaScript.",
+          "codeExample": "let x = 5;\nconst y = 10;\n\nfunction add(a, b) {\n    return a + b;\n}",
+          "practiceExercise": "Write a function that performs basic calculations"
+        }
+      ]
+    }
+  ]
+} 

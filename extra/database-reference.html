@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .element-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .element-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .element-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card p {
+            margin-bottom: 1rem;
+        }
+
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .code-example {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .rendered-example {
+            flex: 1;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .output {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .db-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .sql-badge {
+            background-color: #00758F;
+            color: white;
+        }
+
+        .mongo-badge {
+            background-color: #13AA52;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Database Reference Guide</h1>
+        <p>A comprehensive guide to SQL and MongoDB with examples and live demonstrations</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sql-basics">SQL Basics</a></li>
+            <li><a href="#sql-advanced">SQL Advanced</a></li>
+            <li><a href="#mongo-basics">MongoDB Basics</a></li>
+            <li><a href="#mongo-advanced">MongoDB Advanced</a></li>
+            <li><a href="#comparison">SQL vs MongoDB</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sql-basics" class="element-section">
+            <h2>SQL Basics</h2>
+
+            <div class="element-card">
+                <h3>Creating Tables</h3>
+                <p>Basic table creation in SQL.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge sql-badge">SQL</span>
+                        CREATE TABLE users (<br>
+                        &nbsp;&nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;username VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;email VARCHAR(100) UNIQUE,<br>
+                        &nbsp;&nbsp;age INT CHECK (age >= 18),<br>
+                        &nbsp;&nbsp;created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
+                        );
+                    </div>
+                    <div class="rendered-example">
+                        <p>This creates a users table with:</p>
+                        <ul>
+                            <li>Auto-incrementing ID</li>
+                            <li>Required username</li>
+                            <li>Unique email</li>
+                            <li>Age constraint</li>
+                            <li>Timestamp for creation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Basic CRUD Operations</h3>
+                <p>Create, Read, Update, Delete operations.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge sql-badge">SQL</span>
+                        -- Insert<br>
+                        INSERT INTO users (username, email, age)<br>
+                        VALUES ('john_doe', 'john@example.com', 25);<br><br>
+                        -- Select<br>
+                        SELECT * FROM users WHERE age > 20;<br><br>
+                        -- Update<br>
+                        UPDATE users SET age = 26 WHERE username = 'john_doe';<br><br>
+                        -- Delete<br>
+                        DELETE FROM users WHERE username = 'john_doe';
+                    </div>
+                    <div class="rendered-example">
+                        <p>Basic CRUD operations:</p>
+                        <ul>
+                            <li>Insert new records</li>
+                            <li>Query data with conditions</li>
+                            <li>Update existing records</li>
+                            <li>Remove records</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sql-advanced" class="element-section">
+            <h2>SQL Advanced</h2>
+
+            <div class="element-card">
+                <h3>Joins and Relationships</h3>
+                <p>Working with multiple tables.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge sql-badge">SQL</span>
+                        -- Inner Join<br>
+                        SELECT users.username, orders.order_date<br>
+                        FROM users<br>
+                        INNER JOIN orders ON users.id = orders.user_id;<br><br>
+                        -- Left Join<br>
+                        SELECT users.username, orders.order_date<br>
+                        FROM users<br>
+                        LEFT JOIN orders ON users.id = orders.user_id;
+                    </div>
+                    <div class="rendered-example">
+                        <p>Join types:</p>
+                        <ul>
+                            <li>INNER JOIN: Only matching records</li>
+                            <li>LEFT JOIN: All records from left table</li>
+                            <li>RIGHT JOIN: All records from right table</li>
+                            <li>FULL JOIN: All records from both tables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Advanced Queries</h3>
+                <p>Complex SQL queries and aggregations.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge sql-badge">SQL</span>
+                        -- Group By with Having<br>
+                        SELECT age, COUNT(*) as user_count<br>
+                        FROM users<br>
+                        GROUP BY age<br>
+                        HAVING COUNT(*) > 5;<br><br>
+                        -- Subquery<br>
+                        SELECT username<br>
+                        FROM users<br>
+                        WHERE id IN (SELECT user_id FROM orders);
+                    </div>
+                    <div class="rendered-example">
+                        <p>Advanced query features:</p>
+                        <ul>
+                            <li>GROUP BY for aggregations</li>
+                            <li>HAVING for group filtering</li>
+                            <li>Subqueries for complex conditions</li>
+                            <li>Window functions for advanced analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mongo-basics" class="element-section">
+            <h2>MongoDB Basics</h2>
+
+            <div class="element-card">
+                <h3>Creating Collections</h3>
+                <p>Working with MongoDB collections.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge mongo-badge">MongoDB</span>
+                        // Create collection<br>
+                        db.createCollection("users", {<br>
+                        &nbsp;&nbsp;validator: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$jsonSchema: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsonType: "object",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: ["username", "email"],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username: { bsonType: "string" },<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: { bsonType: "string" }<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        });
+                    </div>
+                    <div class="rendered-example">
+                        <p>MongoDB collection creation:</p>
+                        <ul>
+                            <li>Schema validation</li>
+                            <li>Required fields</li>
+                            <li>Data type validation</li>
+                            <li>Custom validation rules</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Basic CRUD Operations</h3>
+                <p>MongoDB CRUD operations.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge mongo-badge">MongoDB</span>
+                        // Insert<br>
+                        db.users.insertOne({<br>
+                        &nbsp;&nbsp;username: "john_doe",<br>
+                        &nbsp;&nbsp;email: "john@example.com",<br>
+                        &nbsp;&nbsp;age: 25<br>
+                        });<br><br>
+                        // Find<br>
+                        db.users.find({ age: { $gt: 20 } });<br><br>
+                        // Update<br>
+                        db.users.updateOne(<br>
+                        &nbsp;&nbsp;{ username: "john_doe" },<br>
+                        &nbsp;&nbsp;{ $set: { age: 26 } }<br>
+                        );<br><br>
+                        // Delete<br>
+                        db.users.deleteOne({ username: "john_doe" });
+                    </div>
+                    <div class="rendered-example">
+                        <p>MongoDB CRUD operations:</p>
+                        <ul>
+                            <li>insertOne/insertMany for creation</li>
+                            <li>find for querying</li>
+                            <li>updateOne/updateMany for updates</li>
+                            <li>deleteOne/deleteMany for deletion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mongo-advanced" class="element-section">
+            <h2>MongoDB Advanced</h2>
+
+            <div class="element-card">
+                <h3>Aggregation Pipeline</h3>
+                <p>Complex data processing in MongoDB.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge mongo-badge">MongoDB</span>
+                        db.orders.aggregate([<br>
+                        &nbsp;&nbsp;{ $match: { status: "completed" } },<br>
+                        &nbsp;&nbsp;{ $group: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;_id: "$user_id",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;total: { $sum: "$amount" }<br>
+                        &nbsp;&nbsp;}},<br>
+                        &nbsp;&nbsp;{ $sort: { total: -1 } },<br>
+                        &nbsp;&nbsp;{ $limit: 10 }<br>
+                        ]);
+                    </div>
+                    <div class="rendered-example">
+                        <p>Aggregation pipeline stages:</p>
+                        <ul>
+                            <li>$match: Filter documents</li>
+                            <li>$group: Group and aggregate</li>
+                            <li>$sort: Sort results</li>
+                            <li>$limit: Limit results</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Indexing and Performance</h3>
+                <p>Optimizing MongoDB performance.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        <span class="db-badge mongo-badge">MongoDB</span>
+                        // Create index<br>
+                        db.users.createIndex({ email: 1 }, { unique: true });<br><br>
+                        // Compound index<br>
+                        db.users.createIndex({<br>
+                        &nbsp;&nbsp;username: 1,<br>
+                        &nbsp;&nbsp;age: -1<br>
+                        });<br><br>
+                        // Text index<br>
+                        db.users.createIndex({<br>
+                        &nbsp;&nbsp;description: "text"<br>
+                        });
+                    </div>
+                    <div class="rendered-example">
+                        <p>Index types and usage:</p>
+                        <ul>
+                            <li>Single field indexes</li>
+                            <li>Compound indexes</li>
+                            <li>Text indexes for search</li>
+                            <li>Unique constraints</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="element-section">
+            <h2>SQL vs MongoDB Comparison</h2>
+
+            <div class="element-card">
+                <h3>Key Differences</h3>
+                <p>Understanding when to use each database.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        SQL Advantages:<br>
+                        - ACID compliance<br>
+                        - Complex transactions<br>
+                        - Structured data<br>
+                        - Strong relationships<br><br>
+                        MongoDB Advantages:<br>
+                        - Schema flexibility<br>
+                        - Horizontal scaling<br>
+                        - JSON-like documents<br>
+                        - High performance for reads
+                    </div>
+                    <div class="rendered-example">
+                        <p>Use cases:</p>
+                        <ul>
+                            <li>SQL: Financial systems, ERP, CRM</li>
+                            <li>MongoDB: Content management, IoT, Real-time analytics</li>
+                            <li>Hybrid: Use both for different parts of application</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Database Reference Guide &copy; 2024 | Created for learning purposes</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML4 & HTML5 Elements Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .element-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .element-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .element-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card p {
+            margin-bottom: 1rem;
+        }
+
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .code-example {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .rendered-example {
+            flex: 1;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .html5-badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .html4-badge {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        /* Styles for rendered examples */
+        .rendered-example h1 { font-size: 2em; margin-bottom: 0.5em; }
+        .rendered-example h2 { font-size: 1.5em; margin-bottom: 0.5em; }
+        .rendered-example h3 { font-size: 1.2em; margin-bottom: 0.5em; }
+        .rendered-example h4 { font-size: 1.1em; margin-bottom: 0.5em; }
+        .rendered-example h5 { font-size: 1em; margin-bottom: 0.5em; }
+        .rendered-example h6 { font-size: 0.9em; margin-bottom: 0.5em; }
+
+        .rendered-example ul, .rendered-example ol {
+            margin-left: 2em;
+            margin-bottom: 1em;
+        }
+
+        .rendered-example dl {
+            margin-bottom: 1em;
+        }
+
+        .rendered-example dt {
+            font-weight: bold;
+        }
+
+        .rendered-example dd {
+            margin-left: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        .rendered-example form {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .rendered-example fieldset {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rendered-example legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+
+        .rendered-example label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .rendered-example input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+
+        .rendered-example button {
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML4 & HTML5 Elements Reference Guide</h1>
+        <p>A comprehensive guide to HTML elements with examples and descriptions</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#basic-elements">Basic Elements</a></li>
+            <li><a href="#semantic-elements">Semantic Elements</a></li>
+            <li><a href="#form-elements">Form Elements</a></li>
+            <li><a href="#media-elements">Media Elements</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="basic-elements" class="element-section">
+            <h2>Basic HTML Elements</h2>
+
+            <div class="element-card">
+                <h3>Headings <span class="html4-badge">HTML4</span></h3>
+                <p>Used to define headings and subheadings in your document.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;h1&gt;Welcome to My Blog&lt;/h1&gt;<br>
+                        &lt;h2&gt;Latest Posts&lt;/h2&gt;<br>
+                        &lt;h3&gt;Web Development Tips&lt;/h3&gt;<br>
+                        &lt;h4&gt;HTML Basics&lt;/h4&gt;<br>
+                        &lt;h5&gt;CSS Styling&lt;/h5&gt;<br>
+                        &lt;h6&gt;JavaScript Functions&lt;/h6&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <h1>Welcome to My Blog</h1>
+                        <h2>Latest Posts</h2>
+                        <h3>Web Development Tips</h3>
+                        <h4>HTML Basics</h4>
+                        <h5>CSS Styling</h5>
+                        <h6>JavaScript Functions</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Text Formatting <span class="html4-badge">HTML4</span></h3>
+                <p>Different ways to format text in HTML.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;p&gt;This is a regular paragraph.&lt;/p&gt;<br>
+                        &lt;p&gt;&lt;strong&gt;This text is bold&lt;/strong&gt; and &lt;em&gt;this is italic&lt;/em&gt;.&lt;/p&gt;<br>
+                        &lt;p&gt;&lt;mark&gt;This text is highlighted&lt;/mark&gt; and &lt;small&gt;this is smaller text&lt;/small&gt;.&lt;/p&gt;<br>
+                        &lt;p&gt;&lt;del&gt;This text is deleted&lt;/del&gt; and &lt;ins&gt;this is inserted&lt;/ins&gt;.&lt;/p&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <p>This is a regular paragraph.</p>
+                        <p><strong>This text is bold</strong> and <em>this is italic</em>.</p>
+                        <p><mark>This text is highlighted</mark> and <small>this is smaller text</small>.</p>
+                        <p><del>This text is deleted</del> and <ins>this is inserted</ins>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Lists <span class="html4-badge">HTML4</span></h3>
+                <p>Different types of lists in HTML.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;!-- Unordered List --&gt;<br>
+                        &lt;ul&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Coffee&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Tea&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Milk&lt;/li&gt;<br>
+                        &lt;/ul&gt;<br><br>
+                        &lt;!-- Ordered List --&gt;<br>
+                        &lt;ol&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;First step&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Second step&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Third step&lt;/li&gt;<br>
+                        &lt;/ol&gt;<br><br>
+                        &lt;!-- Description List --&gt;<br>
+                        &lt;dl&gt;<br>
+                        &nbsp;&nbsp;&lt;dt&gt;HTML&lt;/dt&gt;<br>
+                        &nbsp;&nbsp;&lt;dd&gt;HyperText Markup Language&lt;/dd&gt;<br>
+                        &nbsp;&nbsp;&lt;dt&gt;CSS&lt;/dt&gt;<br>
+                        &nbsp;&nbsp;&lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;<br>
+                        &lt;/dl&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <ul>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                        </ul>
+                        <ol>
+                            <li>First step</li>
+                            <li>Second step</li>
+                            <li>Third step</li>
+                        </ol>
+                        <dl>
+                            <dt>HTML</dt>
+                            <dd>HyperText Markup Language</dd>
+                            <dt>CSS</dt>
+                            <dd>Cascading Style Sheets</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="form-elements" class="element-section">
+            <h2>Form Elements</h2>
+
+            <div class="element-card">
+                <h3>Registration Form <span class="html5-badge">HTML5</span></h3>
+                <p>A complete registration form with various input types.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;form action="/register" method="post"&gt;<br>
+                        &nbsp;&nbsp;&lt;fieldset&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;legend&gt;Personal Information&lt;/legend&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="name"&gt;Full Name:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" id="name" name="name" required&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" id="email" name="email" required&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="birthdate"&gt;Birth Date:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="date" id="birthdate" name="birthdate"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="color"&gt;Favorite Color:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="color" id="color" name="color"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="range"&gt;Experience Level:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="range" id="range" name="range" min="0" max="10"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                        &nbsp;&nbsp;&lt;/fieldset&gt;<br><br>
+                        &nbsp;&nbsp;&lt;button type="submit"&gt;Register&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="reset"&gt;Clear Form&lt;/button&gt;<br>
+                        &lt;/form&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <form action="/register" method="post">
+                            <fieldset>
+                                <legend>Personal Information</legend>
+                                <div>
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div>
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div>
+                                    <label for="birthdate">Birth Date:</label>
+                                    <input type="date" id="birthdate" name="birthdate">
+                                </div>
+                                <div>
+                                    <label for="color">Favorite Color:</label>
+                                    <input type="color" id="color" name="color">
+                                </div>
+                                <div>
+                                    <label for="range">Experience Level:</label>
+                                    <input type="range" id="range" name="range" min="0" max="10">
+                                </div>
+                            </fieldset>
+                            <button type="submit">Register</button>
+                            <button type="reset">Clear Form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="media-elements" class="element-section">
+            <h2>Media Elements</h2>
+
+            <div class="element-card">
+                <h3>Audio and Video <span class="html5-badge">HTML5</span></h3>
+                <p>Examples of audio and video elements.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;!-- Audio Example --&gt;<br>
+                        &lt;audio controls&gt;<br>
+                        &nbsp;&nbsp;&lt;source src="audio.mp3" type="audio/mpeg"&gt;<br>
+                        &nbsp;&nbsp;Your browser does not support the audio element.<br>
+                        &lt;/audio&gt;<br><br>
+                        &lt;!-- Video Example --&gt;<br>
+                        &lt;video width="320" height="240" controls&gt;<br>
+                        &nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+                        &nbsp;&nbsp;Your browser does not support the video element.<br>
+                        &lt;/video&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <audio controls>
+                            <source src="audio.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <br><br>
+                        <video width="320" height="240" controls>
+                            <source src="video.mp4" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Canvas <span class="html5-badge">HTML5</span></h3>
+                <p>Used to draw graphics via JavaScript.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;<br>
+                        &lt;script&gt;<br>
+                        &nbsp;&nbsp;const canvas = document.getElementById('myCanvas');<br>
+                        &nbsp;&nbsp;const ctx = canvas.getContext('2d');<br>
+                        &nbsp;&nbsp;ctx.fillStyle = 'red';<br>
+                        &nbsp;&nbsp;ctx.fillRect(10, 10, 100, 100);<br>
+                        &nbsp;&nbsp;ctx.fillStyle = 'blue';<br>
+                        &nbsp;&nbsp;ctx.beginPath();<br>
+                        &nbsp;&nbsp;ctx.arc(150, 150, 30, 0, 2 * Math.PI);<br>
+                        &nbsp;&nbsp;ctx.fill();<br>
+                        &lt;/script&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <canvas id="myCanvas" width="200" height="200"></canvas>
+                        <script>
+                            const canvas = document.getElementById('myCanvas');
+                            const ctx = canvas.getContext('2d');
+                            ctx.fillStyle = 'red';
+                            ctx.fillRect(10, 10, 100, 100);
+                            ctx.fillStyle = 'blue';
+                            ctx.beginPath();
+                            ctx.arc(150, 150, 30, 0, 2 * Math.PI);
+                            ctx.fill();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="semantic-elements" class="element-section">
+            <h2>Semantic HTML5 Elements</h2>
+
+            <div class="element-card">
+                <h3>Header and Navigation <span class="html5-badge">HTML5</span></h3>
+                <p>Examples of header and navigation elements.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;header&gt;<br>
+                        &nbsp;&nbsp;&lt;h1&gt;Website Title&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/header&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <header style="background: #f0f0f0; padding: 1rem; margin-bottom: 1rem;">
+                            <h1 style="margin: 0;">Website Title</h1>
+                            <nav>
+                                <ul style="list-style: none; padding: 0; margin: 1rem 0 0 0;">
+                                    <li style="display: inline; margin-right: 1rem;"><a href="#">Home</a></li>
+                                    <li style="display: inline;"><a href="#">About</a></li>
+                                </ul>
+                            </nav>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Article and Section <span class="html5-badge">HTML5</span></h3>
+                <p>Examples of article and section elements.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;article&gt;<br>
+                        &nbsp;&nbsp;&lt;h2&gt;Article Title&lt;/h2&gt;<br>
+                        &nbsp;&nbsp;&lt;section&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Section 1&lt;/h3&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is the first section of the article.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/section&gt;<br>
+                        &nbsp;&nbsp;&lt;section&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Section 2&lt;/h3&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is the second section of the article.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/section&gt;<br>
+                        &lt;/article&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <article style="background: #f8f9fa; padding: 1rem; border-radius: 4px;">
+                            <h2 style="margin-top: 0;">Article Title</h2>
+                            <section style="margin-bottom: 1rem;">
+                                <h3>Section 1</h3>
+                                <p>This is the first section of the article.</p>
+                            </section>
+                            <section>
+                                <h3>Section 2</h3>
+                                <p>This is the second section of the article.</p>
+                            </section>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Aside and Footer <span class="html5-badge">HTML5</span></h3>
+                <p>Examples of aside and footer elements.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        &lt;aside&gt;<br>
+                        &nbsp;&nbsp;&lt;h3&gt;Related Links&lt;/h3&gt;<br>
+                        &nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/aside&gt;<br><br>
+                        &lt;footer&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;&copy; 2024 Your Website&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Privacy Policy&lt;/a&gt; |<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Terms of Service&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/footer&gt;
+                    </div>
+                    <div class="rendered-example">
+                        <aside style="background: #f0f0f0; padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                            <h3 style="margin-top: 0;">Related Links</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                            </ul>
+                        </aside>
+                        <footer style="background: #333; color: white; padding: 1rem; text-align: center; border-radius: 4px;">
+                            <p style="margin: 0;">© 2024 Your Website</p>
+                            <nav style="margin-top: 0.5rem;">
+                                <a href="#" style="color: white;">Privacy Policy</a> |
+                                <a href="#" style="color: white;">Terms of Service</a>
+                            </nav>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>HTML Reference Guide &copy; 2024 | Created for learning purposes</p>
+    </footer>
+</body>
+</html>

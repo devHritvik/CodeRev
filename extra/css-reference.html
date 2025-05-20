@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .element-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .element-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .element-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card p {
+            margin-bottom: 1rem;
+        }
+
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .code-example {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .rendered-example {
+            flex: 1;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Reference Guide</h1>
+        <p>A comprehensive guide to CSS properties with examples and live demonstrations</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#selectors">Selectors</a></li>
+            <li><a href="#box-model">Box Model</a></li>
+            <li><a href="#layout">Layout</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#colors">Colors & Backgrounds</a></li>
+            <li><a href="#animations">Animations</a></li>
+            <li><a href="#transforms">Transforms</a></li>
+            <li><a href="#filters">Filters & Effects</a></li>
+            <li><a href="#variables">CSS Variables</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="selectors" class="element-section">
+            <h2>CSS Selectors</h2>
+
+            <div class="element-card">
+                <h3>Basic Selectors</h3>
+                <p>Different ways to select elements in CSS.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        /* Element Selector */<br>
+                        p { color: blue; }<br><br>
+                        /* Class Selector */<br>
+                        .highlight { background: yellow; }<br><br>
+                        /* ID Selector */<br>
+                        #main-title { font-size: 24px; }<br><br>
+                        /* Attribute Selector */<br>
+                        [type="text"] { border: 1px solid #ccc; }
+                    </div>
+                    <div class="rendered-example">
+                        <p style="color: blue;">This is a paragraph with element selector</p>
+                        <p class="highlight" style="background: yellow;">This has a class selector</p>
+                        <h1 id="main-title" style="font-size: 24px;">This has an ID selector</h1>
+                        <input type="text" style="border: 1px solid #ccc;" placeholder="This has an attribute selector">
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Combinators</h3>
+                <p>Combining selectors for more specific targeting.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        /* Descendant Selector */<br>
+                        div p { color: green; }<br><br>
+                        /* Child Selector */<br>
+                        ul > li { border-left: 2px solid red; }<br><br>
+                        /* Adjacent Sibling */<br>
+                        h2 + p { font-style: italic; }<br><br>
+                        /* General Sibling */<br>
+                        h2 ~ p { color: purple; }
+                    </div>
+                    <div class="rendered-example">
+                        <div>
+                            <p style="color: green;">This is a descendant paragraph</p>
+                        </div>
+                        <ul style="list-style: none;">
+                            <li style="border-left: 2px solid red; padding-left: 10px;">Child list item</li>
+                            <li style="border-left: 2px solid red; padding-left: 10px;">Another child</li>
+                        </ul>
+                        <h2>Heading</h2>
+                        <p style="font-style: italic; color: purple;">This is adjacent to h2</p>
+                        <p style="color: purple;">This is a general sibling</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="box-model" class="element-section">
+            <h2>Box Model</h2>
+
+            <div class="element-card">
+                <h3>Margin, Border, and Padding</h3>
+                <p>Understanding the box model components.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .box {<br>
+                        &nbsp;&nbsp;margin: 20px;<br>
+                        &nbsp;&nbsp;border: 5px solid #333;<br>
+                        &nbsp;&nbsp;padding: 15px;<br>
+                        &nbsp;&nbsp;background: #f0f0f0;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="margin: 20px; border: 5px solid #333; padding: 15px; background: #f0f0f0;">
+                            This box demonstrates margin, border, and padding
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="layout" class="element-section">
+            <h2>Layout Properties</h2>
+
+            <div class="element-card">
+                <h3>Flexbox</h3>
+                <p>Modern layout with flexbox.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .flex-container {<br>
+                        &nbsp;&nbsp;display: flex;<br>
+                        &nbsp;&nbsp;justify-content: space-between;<br>
+                        &nbsp;&nbsp;align-items: center;<br>
+                        }<br><br>
+                        .flex-item {<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;background: #3498db;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; padding: 20px;">
+                            <div style="padding: 20px; background: #3498db; color: white;">Item 1</div>
+                            <div style="padding: 20px; background: #3498db; color: white;">Item 2</div>
+                            <div style="padding: 20px; background: #3498db; color: white;">Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Grid</h3>
+                <p>CSS Grid layout system.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .grid-container {<br>
+                        &nbsp;&nbsp;display: grid;<br>
+                        &nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br>
+                        &nbsp;&nbsp;gap: 10px;<br>
+                        }<br><br>
+                        .grid-item {<br>
+                        &nbsp;&nbsp;background: #2ecc71;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 1</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 2</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 3</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 4</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 5</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Grid 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography" class="element-section">
+            <h2>Typography</h2>
+
+            <div class="element-card">
+                <h3>Text Properties</h3>
+                <p>Styling text with CSS.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .text-example {<br>
+                        &nbsp;&nbsp;font-family: 'Arial', sans-serif;<br>
+                        &nbsp;&nbsp;font-size: 18px;<br>
+                        &nbsp;&nbsp;line-height: 1.6;<br>
+                        &nbsp;&nbsp;text-align: justify;<br>
+                        &nbsp;&nbsp;text-transform: uppercase;<br>
+                        &nbsp;&nbsp;letter-spacing: 1px;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <p style="font-family: 'Arial', sans-serif; font-size: 18px; line-height: 1.6; text-align: justify; text-transform: uppercase; letter-spacing: 1px;">
+                            This text demonstrates various typography properties including font family, size, line height, text alignment, text transform, and letter spacing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="colors" class="element-section">
+            <h2>Colors & Backgrounds</h2>
+
+            <div class="element-card">
+                <h3>Color Properties</h3>
+                <p>Different ways to specify colors and backgrounds.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .color-example {<br>
+                        &nbsp;&nbsp;color: #e74c3c;<br>
+                        &nbsp;&nbsp;background-color: rgba(52, 152, 219, 0.2);<br>
+                        &nbsp;&nbsp;border: 2px solid hsl(120, 100%, 50%);<br>
+                        &nbsp;&nbsp;background-image: linear-gradient(to right, #3498db, #2ecc71);<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="color: #e74c3c; background-color: rgba(52, 152, 219, 0.2); border: 2px solid hsl(120, 100%, 50%); padding: 20px; margin: 10px 0;">
+                            This demonstrates different color properties
+                        </div>
+                        <div style="background-image: linear-gradient(to right, #3498db, #2ecc71); padding: 20px; color: white;">
+                            This shows a gradient background
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="animations" class="element-section">
+            <h2>CSS3 Animations & Transitions</h2>
+
+            <div class="element-card">
+                <h3>Transitions</h3>
+                <p>Create smooth transitions between property values.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .transition-example {<br>
+                        &nbsp;&nbsp;transition: all 0.3s ease;<br>
+                        &nbsp;&nbsp;background: #3498db;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }<br><br>
+                        .transition-example:hover {<br>
+                        &nbsp;&nbsp;background: #2ecc71;<br>
+                        &nbsp;&nbsp;transform: scale(1.1);<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="transition: all 0.3s ease; background: #3498db; padding: 20px; color: white; cursor: pointer;">
+                            Hover me to see transition
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Keyframe Animations</h3>
+                <p>Create complex animations using keyframes.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        @keyframes bounce {<br>
+                        &nbsp;&nbsp;0% { transform: translateY(0); }<br>
+                        &nbsp;&nbsp;50% { transform: translateY(-20px); }<br>
+                        &nbsp;&nbsp;100% { transform: translateY(0); }<br>
+                        }<br><br>
+                        .animation-example {<br>
+                        &nbsp;&nbsp;animation: bounce 1s infinite;<br>
+                        &nbsp;&nbsp;background: #e74c3c;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="animation: bounce 1s infinite; background: #e74c3c; padding: 20px; color: white;">
+                            Bouncing Animation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="transforms" class="element-section">
+            <h2>CSS3 Transforms</h2>
+
+            <div class="element-card">
+                <h3>2D Transforms</h3>
+                <p>Transform elements in 2D space.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .transform-2d {<br>
+                        &nbsp;&nbsp;transform: rotate(45deg) scale(1.2) translate(20px);<br>
+                        &nbsp;&nbsp;background: #9b59b6;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="transform: rotate(45deg) scale(1.2) translate(20px); background: #9b59b6; padding: 20px; color: white;">
+                            2D Transform
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>3D Transforms</h3>
+                <p>Create 3D transformations.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .transform-3d {<br>
+                        &nbsp;&nbsp;transform: perspective(500px) rotateX(45deg) rotateY(45deg);<br>
+                        &nbsp;&nbsp;background: #f1c40f;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="transform: perspective(500px) rotateX(45deg) rotateY(45deg); background: #f1c40f; padding: 20px; color: white;">
+                            3D Transform
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="filters" class="element-section">
+            <h2>CSS3 Filters & Effects</h2>
+
+            <div class="element-card">
+                <h3>Image Filters</h3>
+                <p>Apply visual effects to elements.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .filter-example {<br>
+                        &nbsp;&nbsp;filter: blur(2px) brightness(150%) contrast(120%);<br>
+                        &nbsp;&nbsp;background: #3498db;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="filter: blur(2px) brightness(150%) contrast(120%); background: #3498db; padding: 20px; color: white;">
+                            Filtered Element
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>Backdrop Filters</h3>
+                <p>Apply filters to the area behind an element.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .backdrop-filter {<br>
+                        &nbsp;&nbsp;backdrop-filter: blur(5px);<br>
+                        &nbsp;&nbsp;background: rgba(255, 255, 255, 0.3);<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        }
+                    </div>
+                    <div class="rendered-example" style="background: linear-gradient(45deg, #3498db, #2ecc71);">
+                        <div style="backdrop-filter: blur(5px); background: rgba(255, 255, 255, 0.3); padding: 20px; color: white;">
+                            Backdrop Filter
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="variables" class="element-section">
+            <h2>CSS Custom Properties (Variables)</h2>
+
+            <div class="element-card">
+                <h3>CSS Variables</h3>
+                <p>Define and use custom properties.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        :root {<br>
+                        &nbsp;&nbsp;--primary-color: #3498db;<br>
+                        &nbsp;&nbsp;--secondary-color: #2ecc71;<br>
+                        &nbsp;&nbsp;--spacing: 20px;<br>
+                        }<br><br>
+                        .variable-example {<br>
+                        &nbsp;&nbsp;background: var(--primary-color);<br>
+                        &nbsp;&nbsp;padding: var(--spacing);<br>
+                        &nbsp;&nbsp;color: white;<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="background: #3498db; padding: 20px; color: white;">
+                            Using CSS Variables
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modern-layout" class="element-section">
+            <h2>Modern Layout Features</h2>
+
+            <div class="element-card">
+                <h3>CSS Grid Advanced</h3>
+                <p>Advanced grid layout features.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .advanced-grid {<br>
+                        &nbsp;&nbsp;display: grid;<br>
+                        &nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));<br>
+                        &nbsp;&nbsp;gap: 20px;<br>
+                        &nbsp;&nbsp;grid-auto-rows: minmax(100px, auto);<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; grid-auto-rows: minmax(100px, auto);">
+                            <div style="background: #3498db; padding: 20px; color: white;">Auto-fit Grid 1</div>
+                            <div style="background: #2ecc71; padding: 20px; color: white;">Auto-fit Grid 2</div>
+                            <div style="background: #e74c3c; padding: 20px; color: white;">Auto-fit Grid 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <h3>CSS Container Queries</h3>
+                <p>Style elements based on container size.</p>
+                <div class="example-container">
+                    <div class="code-example">
+                        .container {<br>
+                        &nbsp;&nbsp;container-type: inline-size;<br>
+                        }<br><br>
+                        @container (min-width: 400px) {<br>
+                        &nbsp;&nbsp;.container-element {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: grid;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: 1fr 1fr;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <div class="rendered-example">
+                        <div style="container-type: inline-size; border: 1px solid #ccc; padding: 20px;">
+                            <div style="background: #3498db; padding: 20px; color: white;">
+                                Container Query Example
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Reference Guide &copy; 2024 | Created for learning purposes</p>
+    </footer>
+
+    <style>
+        /* Add new styles for animations */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Add styles for new sections */
+        .backdrop-filter {
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+        }
+
+        /* Add hover effects for interactive examples */
+        .transition-example:hover {
+            background: #2ecc71;
+            transform: scale(1.1);
+        }
+    </style>
+</body>
+</html>
